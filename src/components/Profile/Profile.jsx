@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+import defaultImg from '../../img/no-image-icon-2.jpg';
 
 const Profile = ({
   username,
   tag,
   location,
-  avatar,
+  avatar = defaultImg,
   stats: { followers, views, likes },
 }) => {
   return (
@@ -12,7 +13,7 @@ const Profile = ({
       <div class="description">
         <img src={avatar} alt={username} class="avatar" />
         <p class="name">{username}</p>
-        <p class="tag">{tag}</p>
+        <p class="tag">@{tag}</p>
         <p class="location">{location}</p>
       </div>
 
@@ -45,13 +46,5 @@ Profile.propTypes = {
     likes: PropTypes.number.isRequired,
   }),
 };
-
-// PaintingList.propTypes = {
-//   items: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//     }),
-//   ),
-// };
 
 export default Profile;
