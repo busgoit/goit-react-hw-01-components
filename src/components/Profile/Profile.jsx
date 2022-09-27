@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import defaultImg from 'img/no-image-icon-2.jpg';
 import css from './Profile.module.css';
 
-const Profile = ({
+export const Profile = ({
   username,
   tag,
   location,
@@ -48,4 +48,4 @@ Profile.propTypes = {
   }),
 };
 
-export default Profile;
+// export default Profile;

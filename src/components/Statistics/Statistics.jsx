@@ -1,38 +1,47 @@
-export default function Statistics() {
-  return (
-    <section class="statistics">
-      <h2 class="title">Upload stats</h2>
+import PropTypes from 'prop-types';
+import css from './Statistics.module.css';
+import getRandomHexColor from 'utils/getRandomHexColor';
 
-      <ul class="stat-list">
-        <li class="item">
-          <span class="label">.docx</span>
-          <span class="percentage">4%</span>
-        </li>
-        <li class="item">
-          <span class="label">.mp3</span>
-          <span class="percentage">14%</span>
-        </li>
-        <li class="item">
-          <span class="label">.pdf</span>
-          <span class="percentage">41%</span>
-        </li>
-        <li class="item">
-          <span class="label">.mp4</span>
-          <span class="percentage">12%</span>
-        </li>
+export const Statistics = ({ title, statistics }) => {
+  return (
+    <section className={css.statistics}>
+      {{ title } && (
+        <h2
+          className={css.title}
+          style={{
+            backgroundColor: `${getRandomHexColor()}`,
+          }}
+        >
+          {title}
+        </h2>
+      )}
+
+      <ul className={css.statList}>
+        {statistics.map(stat => (
+          <li
+            key={stat.id}
+            className={css.statListItem}
+            style={{
+              width: `calc(100% / ${statistics.length})`,
+              backgroundColor: `${getRandomHexColor()}`,
+            }}
+          >
+            <span className={css.label}>{stat.label}</span>
+            <span className={css.percentage}>{stat.percentage}%</span>
+          </li>
+        ))}
       </ul>
     </section>
   );
-}
+};
 
-// Пример использования
-// import data from '/path/to/data.json';
-
-// <Statistics title="Upload stats" stats={data} />
-// <Statistics stats={data} />
-
-// Компонент должен принимать два пропа title и stats, в которых указывается заголовок и объект статистики.
-
-// title - не обязателен, и если он не передан, не должна рендериться разметка заголовка <h2>.
-// stats - массив объектов содержащих информацию о элементе статистики. Может иметь произвольное кол-во элементов.
-// Цвет фона элемента статистики в оформлении можно пропустить, либо создать функцию для генерации случайного цвета.
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stat: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
+};
