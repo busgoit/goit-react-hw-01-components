@@ -25,6 +25,11 @@ export const FriendCard = styled.li`
   transform: scale(1.015);
 `;
 
+const setOnlineBackgroundColor = props => {
+  if (props.isOnline) return 'green';
+  return 'red';
+};
+
 export const OnLine = styled.span`
   display: block;
 
@@ -34,10 +39,7 @@ export const OnLine = styled.span`
   height: 20px;
   border-radius: 50%;
 
-  background-color: ${props => {
-    if (props.isOnline) return 'green';
-    return 'red';
-  }};
+  background-color: ${setOnlineBackgroundColor};
 `;
 
 export const Avatar = styled.img`
