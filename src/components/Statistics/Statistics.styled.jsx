@@ -51,7 +51,7 @@ export const StatItem = styled.li`
 
   text-align: center;
   flex-basis: calc(100% / ${statistics.length});
-  background-color: ${getRandomHexColor()};
+  background-color: ${getRandomHexColor};
 
   :first-of-type {
     border-bottom-left-radius: 11px;
