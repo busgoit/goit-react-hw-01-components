@@ -29,7 +29,7 @@ export const Title = styled.h2`
 
   border-radius: 11px 11px 0 0;
 
-  background-color: ${getRandomHexColor()};
+  background-color: ${getRandomHexColor};
 `;
 
 export const StatList = styled.ul`

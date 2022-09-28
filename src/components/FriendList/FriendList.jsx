@@ -1,26 +1,29 @@
-<li class="item">
-  <span class="status"></span>
-  <img class="avatar" src="" alt="User avatar" width="48" />
-  <p class="name"></p>
-</li>;
+import PropTypes from 'prop-types';
+import { FriendListItem } from '../index';
+import { FriendsList } from './FriendList.styled';
 
-// import friends from 'path/to/friends.json';
+export const FriendList = ({ friends }) => {
+  return (
+    <FriendsList>
+      {friends.map(friend => (
+        <FriendListItem
+          key={friend.id}
+          name={friend.name}
+          avatar={friend.avatar}
+          isOnline={friend.isOnline}
+        />
+      ))}
+    </FriendsList>
+  );
+};
 
-// <FriendList friends={friends} />;
-
-// Описание компонента FriendList
-// Компонент должен принимать один пропс friends - массив объектов друзей.
-
-// Компонент должен создавать DOM следующей структуры.
-
-// <ul class="friend-list">
-//   <!-- Произвольное кол-во FriendListItem -->
-// </ul>
-
-// Описание компонента FriendListItem
-// Компонент должен принимать несколько пропов:
-
-// avatar - ссылка на аватар
-// name - имя друга
-// isOnline - буль сигнализирующий о состоянии друга, в сети или нет.
-// В зависимости от пропа isOnline, должен меняться цвет фона span.status. Это можно сделать через разный CSS-класс или Styled Components.
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf(
+    PropTypes.exact({
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    })
+  ),
+};
