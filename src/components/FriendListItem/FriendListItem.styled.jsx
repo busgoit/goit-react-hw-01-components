@@ -5,13 +5,13 @@ export const FriendCard = styled.li`
   width: 340px;
 
   padding: 10px 20px;
-  
+
   align-items: center;
 
   border: 4px solid black;
   border-radius: 15px;
 
-  background-color: #C0C0C0;
+  background-color: #c0c0c0;
 
   :not(:last-child) {
     margin-bottom: 15px;
@@ -22,7 +22,8 @@ export const FriendCard = styled.li`
 
   :hover,
   :focus {
-  transform: scale(1.015);
+    transform: scale(1.015);
+  }
 `;
 
 const setOnlineBackgroundColor = props => {

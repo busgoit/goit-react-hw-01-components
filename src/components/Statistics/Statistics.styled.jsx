@@ -17,7 +17,8 @@ export const Section = styled.section`
 
   :hover,
   :focus {
-  transform: scale(1.015);
+    transform: scale(1.015);
+  }
 `;
 
 export const Title = styled.h2`

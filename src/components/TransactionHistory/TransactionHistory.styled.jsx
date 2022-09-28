@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 export const TransactionTable = styled.table`
   width: 400px;
   margin: 10px auto;
-  
 
   display: block;
 
@@ -19,9 +18,10 @@ export const TransactionTable = styled.table`
   transform: scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover,
-  &:focus {
-  transform: scale(1.015);
+  :hover,
+  :focus {
+    transform: scale(1.015);
+  }
 `;
 
 export const TableHead = styled.thead`
