@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import getRandomHexColor from 'utils/getRandomHexColor';
+// import getRandomHexColor from 'utils/getRandomHexColor';
 import {
   Section,
   Title,
