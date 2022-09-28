@@ -34,7 +34,10 @@ export const OnLine = styled.span`
   height: 20px;
   border-radius: 50%;
 
-  background-color: red;
+  background-color: ${props => {
+    if (props.isOnline) return 'green';
+    return 'red';
+  }};
 `;
 
 export const Avatar = styled.img`
